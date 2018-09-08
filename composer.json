@@ -1,0 +1,23 @@
+{
+    "name": "akaradech/mvc",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Akaradech Sutheesuntornkul",
+            "email": "iamakaradech@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "Controllers/",
+            "Models\\": "Models/",
+            "Supports\\": "Supports/"
+        },
+        "files": [
+            "helpers.php"
+        ]
+    }
+}
