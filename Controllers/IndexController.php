@@ -14,9 +14,4 @@ class IndexController
 
         return view('index', $data);
     }
-
-    public function test()
-    {
-        return view('test');
-    }
 }
