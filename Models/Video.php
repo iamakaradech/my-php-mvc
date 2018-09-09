@@ -13,8 +13,8 @@ class Video extends Model
         $items = [];
 
         try {
-            $contents = $client->get('https://s3-ap-southeast-1.amazonaws.com/ysetter/media/video-search.json');
-            $contents = json_decode($contents, true);
+            $response = $client->get('https://s3-ap-southeast-1.amazonaws.com/ysetter/media/video-search.json');
+            $contents = json_decode($response['contents'], true);
             $items = $contents['items'];
             $videos = [];
             foreach ($items as $item) {

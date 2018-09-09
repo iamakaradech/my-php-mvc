@@ -22,11 +22,13 @@ class HttpRequest
         try {
             $response = $this->client->get($url);
             $body = $response->getBody();
+            $header = $response->getHeaders();
+            $statusCode = $response->getStatusCode();
             $contents = $body->getContents();
         } catch (\Exception $ex) {
             throw $ex;
         }
 
-        return $contents;
+        return compact('statusCode', 'header', 'contents');
     }
 }
