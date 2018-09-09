@@ -7,11 +7,9 @@ class IndexController
 {
     public function index()
     {
-        $video = new Video();
-        $video = $video->getAll();
-        $data['title'] = 'Video Search Result';
-        $data['video'] = $video;
+        $videos = Video::getAll();
+        $title = 'Video Search Result';
 
-        return view('index', $data);
+        return view('index', compact('title', 'videos'));
     }
 }

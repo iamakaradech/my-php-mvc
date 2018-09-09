@@ -7,7 +7,7 @@ use Supports\HttpRequest;
 
 class Video extends Model
 {
-    public function getAll()
+    public static function getAll()
     {
         $client = new HttpRequest();
         $items = [];
