@@ -1,0 +1,15 @@
+web:
+        image: nginx:latest
+        ports:
+                - "8080:80"
+        volumes:
+                - .:/code
+                - ./site.conf:/etc/nginx/conf.d/default.conf
+        working_dir: /code
+        links:
+                - php
+php:
+        build: .
+        working_dir: /code
+        volumes:
+                - .:/code
