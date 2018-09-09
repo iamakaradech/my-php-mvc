@@ -2,9 +2,13 @@
 if (! function_exists('view')) {
     function view($path, $data = [])
     {
+        if (! array_key_exists('title', $data)) {
+            $data['title'] = 'Youtube Video';
+        }
         ob_start();
         require \VIEW_FOLDER . $path . '.php';
         ob_end_flush();
+        unset($data);
     }
 }
 
@@ -17,14 +21,12 @@ if (! function_exists('abort')) {
 if (! function_exists('dispatch')) {
     function dispatch($routes)
     {
-        // var_dump($_SERVER);
         $path = $_SERVER['REQUEST_URI'];
         $index = array_search($path, array_column($routes, 'name'));
-        // var_dump($index);
         if (is_bool($index) && ! $index) {
             return abort('404');
         }
-        // var_dump($routes[$index], $index);
+
         $route = $routes[$index];
         $action = explode('@', $route['action']);
         $class = $action[0];
