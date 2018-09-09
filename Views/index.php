@@ -5,8 +5,8 @@ include('layouts/header.php')
 <h3><?php echo $data['title']; ?></h3>
     <div class="row">
     <?php
-    foreach ($data['video'] as $video) {
-    ?>
+    foreach ($data['videos'] as $video) {
+        ?>
         <div class="col-sm-4 mt-2">
             <div class="card">
                 <a href="<?php echo $video->url; ?>" 

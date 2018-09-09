@@ -7,14 +7,14 @@ use Supports\HttpRequest;
 
 class Video extends Model
 {
-    public function getAll()
+    public static function getAll()
     {
         $client = new HttpRequest();
         $items = [];
 
         try {
-            $contents = $client->get('https://s3-ap-southeast-1.amazonaws.com/ysetter/media/video-search.json');
-            $contents = json_decode($contents, true);
+            $response = $client->get('https://s3-ap-southeast-1.amazonaws.com/ysetter/media/video-search.json');
+            $contents = json_decode($response['contents'], true);
             $items = $contents['items'];
             $videos = [];
             foreach ($items as $item) {
